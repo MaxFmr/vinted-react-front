@@ -1,1 +1,27 @@
 /* Other rules */
+
+header {
+  height: 50px;
+  border: solid;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+header img {
+  height: 47px;
+  object-fit: cover;
+}
+
+.container input {
+  height: 20px;
+  background-color: #f5f6f7;
+  border: none;
+  border-radius: 10px;
+  width: 700px;
+}
+
+header button {
+  width: 150px;
+  height: 30px;
+}
