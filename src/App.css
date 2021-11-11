@@ -1,5 +1,7 @@
 /* Other rules */
-
+* {
+  box-sizing: border-box;
+}
 header {
   height: 50px;
   border: solid;
@@ -13,15 +15,27 @@ header img {
   object-fit: cover;
 }
 
-.container input {
+header input {
   height: 20px;
   background-color: #f5f6f7;
   border: none;
   border-radius: 10px;
-  width: 700px;
+  width: 500px;
 }
 
 header button {
   width: 150px;
   height: 30px;
+}
+
+.banner {
+  height: 460px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.offers {
+  height: 360px;
+  width: 240px;
+  object-fit: cover;
 }
