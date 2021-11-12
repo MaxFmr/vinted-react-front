@@ -34,7 +34,7 @@ const Home = () => {
             {offers.product_pictures.length > 0 ? (
               <Link to={`/product/${offers._id}`}>
                 <img
-                  src={offers.product_pictures[0].secure_url}
+                  src={offers.product_image.secure_url}
                   alt=""
                   className="offers"
                 />
