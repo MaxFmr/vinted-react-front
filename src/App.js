@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "../src/components/Home";
 import Product from "./components/Product";
 import Header from "../src/components/Header";
-import Hero from "../src/components/Hero";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Cookies from "js-cookie";
@@ -23,7 +22,6 @@ function App() {
   return (
     <Router>
       <Header token={token} setUser={setUser} />
-      <Hero />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<Product />} />

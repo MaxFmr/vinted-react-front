@@ -2,10 +2,13 @@
 
 * {
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .container {
   display: flex;
   flex-wrap: wrap;
+  width: 1200px;
+  margin: auto;
 }
 
 body {
@@ -55,13 +58,68 @@ header button {
 
 .banner img {
   height: 615px;
-  max-width: 1900px;
-  overflow: hidden;
+  width: 1450px;
   object-fit: cover;
 }
 
 .offers {
   height: 360px;
   width: 240px;
+  object-fit: cover;
+}
+
+.home-products {
+  margin: 10px;
+  margin-bottom: 20px;
+}
+
+.home-products img {
+  margin-top: 5px;
+}
+
+.home-title {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #c2bdb8;
+  text-decoration: none;
+}
+
+.user {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 2px;
+  color: #c2bdb8;
+}
+
+.home-price {
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.home-brand {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 2px;
+  color: #c2bdb8;
+}
+
+.product-page {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #ebedee;
+  width: 90%;
+  padding: 100px;
+}
+
+.product-informations {
+  border: solid;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  background-color: white;
+}
+
+.product-page img {
   object-fit: cover;
 }

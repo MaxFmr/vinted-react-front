@@ -26,22 +26,34 @@ const Product = () => {
   return isLoading ? (
     <span>En cours de chargement...</span>
   ) : (
-    <>
-      <img src={data.product_pictures[0].secure_url} alt="" />
+    <div>
+      <div className="product-page">
+        <img
+          className="product-image"
+          src={data.product_image.secure_url}
+          alt=""
+        />
 
-      <ul>
-        {/* COMMENTAIRES */}
-        {data.product_details.map((elem, index) => {
-          const keys = Object.keys(elem);
-          return (
-            <li key={index}>
-              <span>{keys[0]}</span>
-              <span>{elem[keys[0]]}</span>
-            </li>
-          );
-        })}
-      </ul>
-    </>
+        <div className="product-informations">
+          <h1>{data.product_price}</h1>{" "}
+          <ul>
+            {data.product_details.map((elem, index) => {
+              const keys = Object.keys(elem);
+              return (
+                <li key={index}>
+                  <span>{keys[0]}</span>
+                  <span> : </span>
+                  <span>{elem[keys[0]]}</span>
+                </li>
+              );
+            })}
+          </ul>
+          <div>{data.owner.account.username}</div>
+          <div>{data.product_name}</div>
+          <button>Acheter</button>
+        </div>
+      </div>
+    </div>
   );
 };
 

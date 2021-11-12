@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Hero from "./Hero";
 //requete axios?
 
 const Home = () => {
@@ -25,13 +26,16 @@ const Home = () => {
   return isLoading ? (
     <div>En cours de chargement...</div>
   ) : (
-    <div className="container">
-      {data.offers.map((offers, index) => {
-        console.log(offers);
-        return (
-          <>
-            <p>{offers.owner.account.username}</p>
-            {offers.product_pictures.length > 0 ? (
+    <>
+      <Hero />
+
+      <div className="container">
+        {data.offers.map((offers, index) => {
+          console.log(offers);
+          return (
+            <div className="home-products">
+              <p className="user">{offers.owner.account.username}</p>
+
               <Link to={`/product/${offers._id}`}>
                 <img
                   src={offers.product_image.secure_url}
@@ -39,18 +43,18 @@ const Home = () => {
                   className="offers"
                 />
               </Link>
-            ) : (
-              <p> Pas d'image </p>
-            )}{" "}
-            <div key={index}>{offers.product_name}</div>
-            <p>{offers.product_price} €</p>
-          </>
-        );
-      })}
-    </div>
+
+              <p className="home-price">{offers.product_price} €</p>
+              <div className="home-title" key={index}>
+                {offers.product_name}
+              </div>
+              <p className="home-brand">{offers.product_details[0].MARQUE}</p>
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 };
 
 export default Home;
-
-<div></div>;
