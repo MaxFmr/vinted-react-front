@@ -25,7 +25,7 @@ const Home = () => {
   return isLoading ? (
     <div>En cours de chargement...</div>
   ) : (
-    <div className="home-product">
+    <div className="container">
       {data.offers.map((offers, index) => {
         console.log(offers);
         return (
