@@ -32,7 +32,7 @@ header input {
   height: 20px;
   background-color: #f5f6f7;
   border: none;
-  border-radius: 10px;
+  border-radius: 3px;
   width: 700px;
   margin-left: 5px;
 }
@@ -41,6 +41,22 @@ header button {
   width: 150px;
   height: 30px;
 }
+
+.logout {
+  background-color: #ff495f;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.sell {
+  background-color: #09aeb7;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  margin-left: 7px;
+}
+
 .signup {
   background-color: white;
   border: solid 1px #09aeb7;
@@ -112,19 +128,132 @@ header button {
 }
 
 .product-informations {
-  border: solid;
-  justify-content: center;
   display: flex;
   flex-direction: column;
   height: 600px;
   background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.product-informations h1 {
+  font-size: 24px;
+  margin-bottom: 150px;
+  margin-top: 5px;
+  margin-left: 5px;
+  border-bottom: #cccccc solid 1px;
+  padding-bottom: 50px;
+}
+
+.product-informations li {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.product-user {
+  color: #cccccc;
+  margin-bottom: 20px;
+  border-top: solid 1px #cccccc;
+}
+
+.informations {
+  color: gray;
+}
+
+.product-product-name {
+  font-size: large;
+  margin-top: 100px;
+  margin-bottom: 10px;
 }
 
 .product-page img {
   object-fit: cover;
 }
 
+.product-page button {
+  border-radius: 5px;
+  border: none;
+  background-color: #09aeb7;
+  border: solid 1px #09aeb7;
+  color: white;
+  width: 150px;
+  height: 30px;
+  margin-left: 135px;
+}
+
 .signup-form {
-  border: tomato solid 2px;
-  height: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.signup-form input {
+  width: 270px;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid gray;
+  margin-top: 20px;
+}
+
+.signup-form h1 {
+  margin-left: 90px;
+  font-size: larger;
+}
+
+.submit-button {
+  border-radius: 5px;
+  border: none;
+  background-color: #09aeb7;
+  border: solid 1px #09aeb7;
+  color: white;
+}
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-form input {
+  width: 270px;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid gray;
+  margin-top: 20px;
+}
+
+.login-button {
+  border-radius: 5px;
+  border: none;
+  background-color: #09aeb7;
+  border: solid 1px #09aeb7;
+  color: white;
+}
+
+.publish-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.publish-title-description {
+  border: springgreen solid 1px;
+  width: 1100px;
+}
+
+.publish-form input {
+  height: 70px;
+  width: 1100px;
+  border: none;
+  border-bottom: solid 1px grey;
+  margin-left: 300px;
+}
+
+.publish-informations {
+  border: teal 1px solid;
 }

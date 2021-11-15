@@ -12,7 +12,7 @@ const Product = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://vinted-api-maxime.herokuapp.com/offer/${id}`
+          `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
         );
         console.log(response.data);
         setData(response.data);
@@ -35,7 +35,8 @@ const Product = () => {
         />
 
         <div className="product-informations">
-          <h1>{data.product_price}</h1>{" "}
+          <h1>{data.product_price} € </h1>
+
           <ul>
             {data.product_details.map((elem, index) => {
               const keys = Object.keys(elem);
@@ -43,13 +44,15 @@ const Product = () => {
                 <li key={index}>
                   <span>{keys[0]}</span>
                   <span> : </span>
-                  <span>{elem[keys[0]]}</span>
+                  <span className="informations">{elem[keys[0]]}</span>
                 </li>
               );
             })}
           </ul>
-          <div>{data.owner.account.username}</div>
-          <div>{data.product_name}</div>
+          <div className="product-product-name">{data.product_name}</div>
+          <div className="product-user">
+            Vendeur : @{data.owner.account.username}
+          </div>
           <button>Acheter</button>
         </div>
       </div>

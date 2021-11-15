@@ -11,7 +11,7 @@ const Signup = ({ setUser }) => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://vinted-api-maxime.herokuapp.com/user/signup",
+        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
         {
           email: email,
           username: username,
@@ -19,10 +19,7 @@ const Signup = ({ setUser }) => {
         }
       );
       if (response.data.token) {
-        //   console.log(response.data);
-        // Créer un cookie pour enregistrer le token
         setUser(response.data.token);
-        // Naviguer vers Home
         navigate("/");
       }
     } catch (error) {
@@ -34,21 +31,27 @@ const Signup = ({ setUser }) => {
   return (
     <div className="signup-form">
       <form onSubmit={handleSubmit}>
-        <h1>S'inscrire</h1>Y
-        <input
-          type="text"
-          placeholder="Nom d'utilisateur"
-          onChange={(event) => {
-            setUsername(event.target.value);
-          }}
-        />
-        <input
-          type="text"
-          placeholder="Email"
-          onChange={(event) => {
-            setEmail(event.target.value);
-          }}
-        />
+        <h1>S'inscrire</h1>
+        <div>
+          {" "}
+          <input
+            type="text"
+            placeholder="Nom d'utilisateur"
+            onChange={(event) => {
+              setUsername(event.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            placeholder="Email"
+            onChange={(event) => {
+              setEmail(event.target.value);
+            }}
+          />
+        </div>
+
         <input
           type="password"
           placeholder="Mot de passe"
@@ -57,7 +60,14 @@ const Signup = ({ setUser }) => {
             console.log(password);
           }}
         />
-        <input type="submit" onClick={() => navigate("/")} />
+        <div>
+          {" "}
+          <input
+            className="submit-button"
+            type="submit"
+            onClick={() => navigate("/")}
+          />
+        </div>
       </form>
     </div>
   );

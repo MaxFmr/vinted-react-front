@@ -17,6 +17,7 @@ const Header = ({ token, setUser }) => {
         {token ? (
           <>
             <button
+              className="logout"
               onClick={() => {
                 setUser(null);
                 navigate("/");
@@ -25,6 +26,7 @@ const Header = ({ token, setUser }) => {
               Se déconnecter
             </button>
             <button
+              className="sell"
               onClick={() => {
                 setUser(token);
                 navigate("/publish");

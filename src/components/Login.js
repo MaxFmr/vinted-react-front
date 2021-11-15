@@ -36,7 +36,7 @@ const Login = ({ setUser }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="login-form" onSubmit={handleSubmit}>
       <h1>Se connecter</h1>
 
       <input
@@ -55,7 +55,7 @@ const Login = ({ setUser }) => {
         }}
       />
       <span style={{ color: "red" }}>{errorMessage}</span>
-      <input type="submit" onClick={navigate} />
+      <input className="login-button" type="submit" onClick={navigate} />
     </form>
   );
 };
