@@ -12,7 +12,7 @@ const Product = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+          `https://vinted-api-maxime.herokuapp.com/offer/${id}`
         );
         console.log(response.data);
         setData(response.data);

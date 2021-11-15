@@ -123,3 +123,8 @@ header button {
 .product-page img {
   object-fit: cover;
 }
+
+.signup-form {
+  border: tomato solid 2px;
+  height: 100px;
+}

@@ -11,7 +11,7 @@ const Signup = ({ setUser }) => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        "https://vinted-api-maxime.herokuapp.com/user/signup",
         {
           email: email,
           username: username,
@@ -32,32 +32,34 @@ const Signup = ({ setUser }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>S'inscrire</h1>
-      <input
-        type="text"
-        placeholder="Nom d'utilisateur"
-        onChange={(event) => {
-          setUsername(event.target.value);
-        }}
-      />
-      <input
-        type="text"
-        placeholder="Email"
-        onChange={(event) => {
-          setEmail(event.target.value);
-        }}
-      />
-      <input
-        type="password"
-        placeholder="Mot de passe"
-        onChange={(event) => {
-          setPassword(event.target.value);
-          console.log(password);
-        }}
-      />
-      <input type="submit" onClick={() => navigate("/")} />
-    </form>
+    <div className="signup-form">
+      <form onSubmit={handleSubmit}>
+        <h1>S'inscrire</h1>Y
+        <input
+          type="text"
+          placeholder="Nom d'utilisateur"
+          onChange={(event) => {
+            setUsername(event.target.value);
+          }}
+        />
+        <input
+          type="text"
+          placeholder="Email"
+          onChange={(event) => {
+            setEmail(event.target.value);
+          }}
+        />
+        <input
+          type="password"
+          placeholder="Mot de passe"
+          onChange={(event) => {
+            setPassword(event.target.value);
+            console.log(password);
+          }}
+        />
+        <input type="submit" onClick={() => navigate("/")} />
+      </form>
+    </div>
   );
 };
 
