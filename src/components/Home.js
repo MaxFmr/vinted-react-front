@@ -11,7 +11,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://vinted-api-maxime.herokuapp.com/offers"
+          "https://lereacteur-vinted-api.herokuapp.com/offers"
         );
         // console.log(response.data);
         setData(response.data);
