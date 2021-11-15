@@ -2,45 +2,46 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Publish = ({ setUser }) => {
+const Publish = ({ token }) => {
   const [file, setFile] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState();
   const [condition, setCondition] = useState("");
   const [city, setCity] = useState("");
   const [brand, setBrand] = useState("");
-  const [size, setSize] = useState(0);
+  const [size, setSize] = useState();
   const [color, setColor] = useState("");
+  const [data, setData] = useState();
 
   const navigate = useNavigate();
   const handleSubmit = async (event) => {
-    event.preventDefault();
     try {
+      event.preventDefault();
+
+      const formData = new FormData();
+      formData.append("title", title);
+      formData.append("picture", file);
+      formData.append("description", description);
+      formData.append("brand", brand);
+      formData.append("size", size);
+      formData.append("color", color);
+      formData.append("condition", condition);
+      formData.append("city", city);
+      formData.append("price", price);
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/publish",
+        "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
+        formData,
         {
-          title: { title },
-          description: { description },
-          price: { price },
-          condition: { condition },
-          city: { city },
-          brand: { brand },
-          size: { size },
-          color: { color },
-          picture: { file },
+          headers: {
+            authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
         }
       );
-      //   if (response.data.token) {
-      //     //   console.log(response.data);
-      //     // Créer un cookie pour enregistrer le token
-      //     setUser(response.data.token);
-      //     // Naviguer vers Home
-      //     navigate("/");
-      //   }
 
-      //si token ok ===> rediriger vers page de l'annonce
-      // si pas de token ===> rediriger versla page d'identification
+      setData(response.data);
+      console.log(data);
     } catch (error) {
       alert(error.message);
       console.log(error.message);
@@ -112,7 +113,7 @@ const Publish = ({ setUser }) => {
             setPrice(event.target.value);
           }}
         />
-        <input type="submit" onClick={() => navigate("/")} />
+        <input type="submit" />
       </form>
     </div>
   );

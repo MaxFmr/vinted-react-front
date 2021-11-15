@@ -15,14 +15,24 @@ const Header = ({ token, setUser }) => {
 
       <div>
         {token ? (
-          <button
-            onClick={() => {
-              setUser(null);
-              navigate("/");
-            }}
-          >
-            Se déconnecter
-          </button>
+          <>
+            <button
+              onClick={() => {
+                setUser(null);
+                navigate("/");
+              }}
+            >
+              Se déconnecter
+            </button>
+            <button
+              onClick={() => {
+                setUser(token);
+                navigate("/publish");
+              }}
+            >
+              Vends tes articles
+            </button>
+          </>
         ) : (
           <>
             <Link to="/signup">
