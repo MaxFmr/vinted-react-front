@@ -7,6 +7,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Cookies from "js-cookie";
 import { useState } from "react";
+import Publish from "./components/Publish";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -26,7 +27,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/signup" element={<Signup setUser={setUser} />} />
-        <Route path="/Login" element={<Login setUser={setUser} />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/publish" element={<Publish setUser={setUser} />} />
       </Routes>
     </Router>
   );

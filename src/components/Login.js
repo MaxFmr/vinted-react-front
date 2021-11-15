@@ -15,7 +15,7 @@ const Login = ({ setUser }) => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://vinted-api-maxime.herokuapp.com/user/login",
+        "https://lereacteur-vinted-api.herokuapp.com/user/login",
         {
           email: email,
           password: password,
