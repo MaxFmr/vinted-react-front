@@ -8,12 +8,13 @@ import Login from "./components/Login";
 import Cookies from "js-cookie";
 import { useState } from "react";
 import Publish from "./components/Publish";
-import Payement from "./components/Payement";
-// import { loadStripe } from "@stripe/stripe-js";
-// import { Elements } from "@stripe/react-stripe-js";
-// import CheckoutForm from "./components/CheckoutForm";
+import Payment from "./components/Payment";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
 function App() {
+  const stripePromise = loadStripe("pk_test_5z9rSB8XwuAOihoBixCMfL6X");
+
   const [token, setToken] = useState(Cookies.get("userToken") || null);
 
   const setUser = (token) => {
@@ -25,25 +26,35 @@ function App() {
     setToken(token);
   };
   return (
-    <Router>
-      <Header token={token} setUser={setUser} />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/product/:id"
-          element={<Product />}
-          setUser={setUser}
-          token={token}
-        />
-        <Route path="/signup" element={<Signup setUser={setUser} />} />
-        <Route path="/login" element={<Login setUser={setUser} />} />
-        <Route path="/payement" element={<Payement />} />
-        <Route
-          path="/publish"
-          element={<Publish setUser={setUser} token={token} />}
-        />
-      </Routes>
-    </Router>
+    <>
+      <Router>
+        <Header token={token} setUser={setUser} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/product/:id"
+            element={<Product setUser={setUser} token={token} />}
+          />
+          <Route path="/signup" element={<Signup setUser={setUser} />} />
+          <Route
+            path="/login"
+            element={<Login setUser={setUser} token={token} />}
+          />
+          <Route
+            path="/publish"
+            element={<Publish setUser={setUser} token={token} />}
+          />
+          <Route
+            path="/payment"
+            element={
+              <Elements stripe={stripePromise}>
+                <Payment token={token} />
+              </Elements>
+            }
+          />
+        </Routes>
+      </Router>
+    </>
   );
 }
 

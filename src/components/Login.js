@@ -1,9 +1,9 @@
 // route axios avec login Token et cookie
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Navigate } from "react-router-dom";
 
-const Login = ({ setUser }) => {
+const Login = ({ setUser, token }) => {
   const navigate = useNavigate("/");
 
   //   const [isLoading, setIsLoading] = useState(true);
@@ -37,7 +37,7 @@ const Login = ({ setUser }) => {
     }
   };
 
-  return (
+  return token === null ? (
     <form className="login-form" onSubmit={handleSubmit}>
       <h1>Se connecter</h1>
 
@@ -59,6 +59,8 @@ const Login = ({ setUser }) => {
       <span style={{ color: "red" }}>{errorMessage}</span>
       <input className="login-button" type="submit" onClick={navigate} />
     </form>
+  ) : (
+    <Navigate to="/" />
   );
 };
 

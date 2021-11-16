@@ -1,15 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Product = ({ token }) => {
   const { id } = useParams();
 
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,7 +37,6 @@ const Product = ({ token }) => {
 
         <div className="product-informations">
           <h1>{data.product_price} € </h1>
-
           <ul>
             {data.product_details.map((elem, index) => {
               const keys = Object.keys(elem);
@@ -56,13 +53,17 @@ const Product = ({ token }) => {
           <div className="product-user">
             Vendeur : @{data.owner.account.username}
           </div>
-          <button
-            onClick={() => {
-              navigate("/payement");
+
+          <Link
+            to={token ? "/payment" : "/login"}
+            state={{
+              title: data.product_name,
+              price: data.product_price,
+              user: data.owner.account._id,
             }}
           >
             Acheter
-          </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -52,7 +52,7 @@ const Publish = ({ token }) => {
   return token ? (
     <div className="publish-form">
       <form onSubmit={handleSubmit}>
-        <div className="upload">
+        <div>
           <input
             type="file"
             onChange={(event) => {
@@ -60,62 +60,56 @@ const Publish = ({ token }) => {
             }}
           />
         </div>
-
-        <div className="publish-title-description">
-          <div className="title-description">
-            <span>Titre</span>
-            <input
-              type="text"
-              placeholder="title"
-              onChange={(event) => {
-                setTitle(event.target.value);
-              }}
-            />
-          </div>
-          <div>
-            <span>Décris ton article</span>
-            <input
-              type="text"
-              placeholder="Description"
-              onChange={(event) => {
-                setDescription(event.target.value);
-              }}
-            />
-          </div>
+        <div>
+          <input
+            type="text"
+            placeholder="title"
+            onChange={(event) => {
+              setTitle(event.target.value);
+            }}
+          />
+        </div>
+        <div>
+          {" "}
+          <textarea
+            type="text"
+            placeholder="Description"
+            onChange={(event) => {
+              setDescription(event.target.value);
+            }}
+          />
         </div>
 
-        <div className="publish-informations">
-          <div>
-            Marque
-            <input
-              type="text"
-              placeholder="Marque"
-              onChange={(event) => {
-                setBrand(event.target.value);
-              }}
-            />
-          </div>
-          <div>
-            Taille
-            <input
-              type="text"
-              placeholder="Taille"
-              onChange={(event) => {
-                setSize(event.target.value);
-              }}
-            />
-          </div>
-          <div>
-            Couleur
-            <input
-              type="text"
-              placeholder="Couleur"
-              onChange={(event) => {
-                setColor(event.target.value);
-              }}
-            />
-          </div>
-          Etat
+        <div>
+          {" "}
+          <input
+            type="text"
+            placeholder="Marque"
+            onChange={(event) => {
+              setBrand(event.target.value);
+            }}
+          />
+        </div>
+        <div>
+          {" "}
+          <input
+            type="text"
+            placeholder="Taille"
+            onChange={(event) => {
+              setSize(event.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            placeholder="Couleur"
+            onChange={(event) => {
+              setColor(event.target.value);
+            }}
+          />
+        </div>
+        <div>
           <input
             type="text"
             placeholder="Etat"
@@ -123,19 +117,18 @@ const Publish = ({ token }) => {
               setCondition(event.target.value);
             }}
           />
-          <div>
-            Lieu
-            <input
-              type="text"
-              placeholder="Lieu"
-              onChange={(event) => {
-                setCity(event.target.value);
-              }}
-            />
-          </div>
         </div>
         <div>
-          Prix
+          <input
+            type="text"
+            placeholder="Lieu"
+            onChange={(event) => {
+              setCity(event.target.value);
+            }}
+          />
+        </div>
+        <div>
+          {" "}
           <input
             type="text"
             placeholder="Prix"
@@ -144,8 +137,9 @@ const Publish = ({ token }) => {
             }}
           />
         </div>
-
-        <input type="submit" value="Ajouter" />
+        <div>
+          <button>Publier</button>
+        </div>
       </form>
     </div>
   ) : (

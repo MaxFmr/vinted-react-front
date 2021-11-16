@@ -178,8 +178,13 @@ header button {
   width: 150px;
   height: 30px;
   margin-left: 135px;
+  text-decoration: none;
 }
 
+.product-page button :link {
+  text-decoration: none;
+  color: white;
+}
 .signup-form {
   display: flex;
   justify-content: center;
@@ -236,28 +241,53 @@ header button {
 }
 
 .publish-form {
-  border: solid;
   display: flex;
   justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
-}
-
-.upload {
-  width: 1300px;
-  height: 250px;
-  border: springgreen 1px solid;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.publish-title-description {
-  border: steelblue 1px solid;
-  display: flex;
   flex-direction: column;
-}
-
-.title-description {
+  align-items: center;
+  font-size: x-large;
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 10%;
+  background: #eaedee;
 }
 
 .publish-form input {
+  border: none;
+  margin-left: 100px;
+  border-bottom: solid 1px gray;
+  height: 40px;
+  width: 200px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.publish-form textarea {
+  height: 200px;
+  width: 300px;
+  margin-left: 100px;
+}
+
+.publish-form button {
+  margin-left: 200px;
+  border-radius: 5px;
+  border: none;
+  background-color: #09aeb7;
+  border: solid 1px #09aeb7;
+  color: white;
+  height: 40px;
+  width: 80px;
+}
+
+.payment-form {
+  justify-content: space-between;
+  border: solid;
+  height: 200px;
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 250px;
+}
+
+.card {
+  border: springgreen solid 1px;
 }

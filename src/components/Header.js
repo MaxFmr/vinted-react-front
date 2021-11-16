@@ -1,5 +1,6 @@
 import logo from "../img/logo.png";
 import { Link, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const Header = ({ token, setUser }) => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ const Header = ({ token, setUser }) => {
             <button
               className="sell"
               onClick={() => {
-                setUser(token);
+                Cookies.remove("userToken");
                 navigate("/publish");
               }}
             >
@@ -43,7 +44,7 @@ const Header = ({ token, setUser }) => {
             </Link>
             <Link to="/login">
               <button className="login">Se connecter</button>
-            </Link>{" "}
+            </Link>
           </>
         )}
       </div>
