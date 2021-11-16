@@ -1,7 +1,7 @@
 // route axios avec login Token et cookie
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Login = ({ setUser }) => {
   const navigate = useNavigate("/");
@@ -10,6 +10,8 @@ const Login = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
+  const location = useLocation();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -24,7 +26,7 @@ const Login = ({ setUser }) => {
       if (response.data.token) {
         console.log(response);
         setUser(response.data.token);
-        navigate("/");
+        navigate(location.state?.fromPublish ? "/publish" : "/");
       }
     } catch (error) {
       alert(error);

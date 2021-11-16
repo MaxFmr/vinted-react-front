@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Publish = ({ token }) => {
   const [file, setFile] = useState("");
@@ -49,10 +49,10 @@ const Publish = ({ token }) => {
     }
   };
 
-  return (
+  return token ? (
     <div className="publish-form">
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="upload">
           <input
             type="file"
             onChange={(event) => {
@@ -62,8 +62,8 @@ const Publish = ({ token }) => {
         </div>
 
         <div className="publish-title-description">
-          <div>
-            <h4>Titre</h4>
+          <div className="title-description">
+            <span>Titre</span>
             <input
               type="text"
               placeholder="title"
@@ -73,7 +73,7 @@ const Publish = ({ token }) => {
             />
           </div>
           <div>
-            <h4>Décris ton article</h4>
+            <span>Décris ton article</span>
             <input
               type="text"
               placeholder="Description"
@@ -148,6 +148,8 @@ const Publish = ({ token }) => {
         <input type="submit" value="Ajouter" />
       </form>
     </div>
+  ) : (
+    <Navigate to={"/login"} state={{ fromPublish: true }} />
   );
 };
 

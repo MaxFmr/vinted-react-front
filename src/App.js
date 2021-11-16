@@ -8,9 +8,13 @@ import Login from "./components/Login";
 import Cookies from "js-cookie";
 import { useState } from "react";
 import Publish from "./components/Publish";
+import Payement from "./components/Payement";
+// import { loadStripe } from "@stripe/stripe-js";
+// import { Elements } from "@stripe/react-stripe-js";
+// import CheckoutForm from "./components/CheckoutForm";
 
 function App() {
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(Cookies.get("userToken") || null);
 
   const setUser = (token) => {
     if (token) {
@@ -25,9 +29,15 @@ function App() {
       <Header token={token} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/product/:id" element={<Product />} token={token} />
+        <Route
+          path="/product/:id"
+          element={<Product />}
+          setUser={setUser}
+          token={token}
+        />
         <Route path="/signup" element={<Signup setUser={setUser} />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/payement" element={<Payement />} />
         <Route
           path="/publish"
           element={<Publish setUser={setUser} token={token} />}

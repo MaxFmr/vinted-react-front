@@ -1,12 +1,15 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const Product = () => {
+const Product = ({ token }) => {
   const { id } = useParams();
 
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,7 +47,7 @@ const Product = () => {
                 <li key={index}>
                   <span>{keys[0]}</span>
                   <span> : </span>
-                  <span className="informations">{elem[keys[0]]}</span>
+                  <div className="informations">{elem[keys[0]]}</div>
                 </li>
               );
             })}
@@ -53,7 +56,13 @@ const Product = () => {
           <div className="product-user">
             Vendeur : @{data.owner.account.username}
           </div>
-          <button>Acheter</button>
+          <button
+            onClick={() => {
+              navigate("/payement");
+            }}
+          >
+            Acheter
+          </button>
         </div>
       </div>
     </div>
